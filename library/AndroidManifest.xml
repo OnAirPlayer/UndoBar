@@ -13,8 +13,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<manifest package="com.cocosw.undobar"  xmlns:android="http://schemas.android.com/apk/res/android"
-		  xmlns:amazon="http://schemas.amazon.com/apk/res/android">
+<manifest package="com.cocosw.undobar"  xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-sdk android:minSdkVersion="9" />
 
