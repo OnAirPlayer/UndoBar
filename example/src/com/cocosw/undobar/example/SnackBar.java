@@ -1,5 +1,6 @@
 package com.cocosw.undobar.example;
 
+
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -12,7 +13,7 @@ import com.cocosw.undobar.UndoBarController;
 
 import java.util.Arrays;
 
-public class UndoStyle extends ListActivity implements UndoBarController.AdvancedUndoListener {
+public class SnackBar extends ListActivity implements UndoBarController.AdvancedUndoListener {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class UndoStyle extends ListActivity implements UndoBarController.Advance
         b.putInt("index", position);
 
         new UndoBarController.UndoBar(this).message(getListAdapter().getItem(position)
-                + " was selected").listener(this).token(b).show();
+                + " was selected").listener(this).noicon(true).token(b).show();
     }
 
     @Override

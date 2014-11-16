@@ -9,54 +9,50 @@ UndoBar was modified from Roman(@romannurik)'s undobar concept (https://code.goo
 ![UndoBar Sample](https://github.com/soarcn/UndoBar/blob/master/art/redo.png?raw=true)
 ![UndoBar Sample](https://github.com/soarcn/UndoBar/blob/master/art/refresh.png?raw=true)
 ![UndoBar Sample](https://github.com/soarcn/UndoBar/blob/master/art/customize.png?raw=true)
+![UndoBar Sample](https://github.com/soarcn/UndoBar/blob/master/art/material.png?raw=true)
 
 
 How to use this library
 =======
 
 - Download this library, import to your IDE (eclipse...) as a library project.
-- Using Gradle(from 0.5):
+- Using Gradle(from 0.5)
 
-```xml
-compile 'com.cocosw:undobar:1.+@aar'
-```
+    ```groovy
+    compile 'com.cocosw:undobar:1.+@aar' 
+    ```
 
 
 API
 =======
 
-- You can use UndoBar by just one line code
+- You can also use UndoBar with builder style.
 
-``` java
+    ``` java
+    new UndoBar(getActivity()).message("Undo-bar title").listener(listener).show();
+    ```
+- Or you can use UndoBar by just one line code (Deprecated from 1.4)
+    
+    ``` java
     UndoBarController.show(getActivity(), "Undo-bar title" , listener, undoToken);
-```
-- Or you can also use UndoBar with builder style.
-
-``` java
-    new UndoBar(getActivity()).message("Undo-bar title").listener(listener).show;
-```
+    ```
 
 - UndoBar support customize style with background/icon/duration/animation attribution.
-- UndoBar provides 3 default styles. You can use them for different purpose like undo,refresh, or just use it as replacement of Toasts.
-- UndoBar will switch to KitKat look and feel in API-19 target.
+- UndoBar provides 3 default styles. You can use them for different purposes like undo,refresh, or just use it as replacement of toasts.
+- UndoBar will switch to KitKat look and feel in API-19 target and after.
 - UndoBar will determine if tranlucent mode(4.4) is using and adjust its position.
-- You can overwrite style in your project to change the look and feel. For example, you can use following lines in your style.xml to always use KitKat style UndoBar.
+- You can set theme in your appliation to change the look and feel. For example, you can use following lines in your style.xml to always use material style UndoBar.
 
-```xml
-    <style name="UndoBar" parent="UndoBarKitKat"/>
-    <style name="UndoBarMessage" parent="UndoBarMessageKitKat"/>
-    <style name="UndoBarButton" parent="UndoBarButtonKitKat"/>
-```
+    ```xml
+    <style name="MaterialTheme" parent="android:Theme.Light">
+        <item name="undoBarStyle">@style/UndoBarMaterialStyle</item>
+    </style>
+    ```
 
 Contribute
 =======
 
 - Feel free to fork it
-
-
-Other
-=======
-- Works perfectly with Crouton/Menudrawer/ABS
 
 
 License

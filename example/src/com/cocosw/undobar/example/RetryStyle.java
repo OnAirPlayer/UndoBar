@@ -44,7 +44,7 @@ public class RetryStyle extends FragmentActivity implements UndoListener,
 			@Override
 			public Void loadData() throws Exception {
 				Thread.sleep(1500);
-				throw new Exception("Oops! Something wrong.");
+				throw new Exception("Something is wrong");
 			}
 		};
 	}
@@ -52,11 +52,13 @@ public class RetryStyle extends FragmentActivity implements UndoListener,
 	@Override
 	public void onLoadFinished(final Loader<Void> arg0, final Void arg1) {
 		final ThrowableLoader<Void> loader = ((ThrowableLoader<Void>) arg0);
-		if (loader.getException() != null) {
-			UndoBarController.show(this, loader.getException().getMessage(),
-					this, UndoBarController.RETRYSTYLE);
+        //noinspection StatementWithEmptyBody
+        if (loader.getException() != null) {
+
+            new UndoBarController.UndoBar(this).message(loader.getException().getMessage()).style(UndoBarController.RETRYSTYLE).listener(this).show();
+
 		} else {
-			// something todo if there is no exception
+			// if there is no exception
 		}
 		findViewById(id.progressBar).setVisibility(View.GONE);
 	}
